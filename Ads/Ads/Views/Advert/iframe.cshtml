@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+@model Ads.Database.Advert
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/advert.css" />
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+
+<body>
+    
+    <div id="advert">
+        <p>@Model.Id</p>
+        <p>@Model.Width</p>
+        <p>@Model.Height</p>
+        <p>@Model.BackgroungColor</p>
+        <p>@Model.BackgroundImage</p>
+        <p>@Model.Logo</p>
+        <p>@Model.ButtonText</p>
+        <p>@Model.PriceFormat</p>
+    </div>
+
+</body>
+</html>

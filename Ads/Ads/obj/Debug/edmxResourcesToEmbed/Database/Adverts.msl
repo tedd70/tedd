@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdvertsModelStoreContainer" CdmEntityContainer="AdvertsEntities">
+    <EntitySetMapping Name="Adverts">
+      <EntityTypeMapping TypeName="AdvertsModel.Advert">
+        <MappingFragment StoreEntitySet="Adverts">
+          <ScalarProperty Name="ButtonColor" ColumnName="ButtonColor" />
+          <ScalarProperty Name="PriceColor" ColumnName="PriceColor" />
+          <ScalarProperty Name="TitleColor" ColumnName="TitleColor" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="BackgroungColor" ColumnName="BackgroungColor" />
+          <ScalarProperty Name="BackgroundImage" ColumnName="BackgroundImage" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="ButtonText" ColumnName="ButtonText" />
+          <ScalarProperty Name="PriceFormat" ColumnName="PriceFormat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AdvertsModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

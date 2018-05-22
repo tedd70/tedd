@@ -1,0 +1,140 @@
+﻿/*My Page*/ 
+body {
+    font-family: 'Times New Roman';
+}
+
+#advert {
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.tab-container {
+    overflow: hidden;
+    clear: both;
+}
+
+.tab-item {
+    padding: 10px;
+    border: 1px solid black;
+    float: left;
+}
+
+#preview {
+    width: calc(100% - 401px);
+    float: left;
+    min-height: 100px;
+}
+
+#configuration {
+    padding: 20px;
+    width: 400px;
+    float: left;
+    min-height: 100px;
+    margin-bottom: 50px;
+    border-left: 2px solid #808080;
+}
+
+.fieldset {
+    padding:.35em .625em .75em;
+}
+
+.patrat {
+    padding:20px;
+    margin: 0 auto;
+}
+
+.logo {
+    float:left;
+}
+.logo img {
+    max-width:50px!important;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height:1;
+    margin-top:10px;
+}
+
+.imagine-pret img {
+   margin: 0 auto!important;
+  
+}
+
+.price {
+    text-align:center;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.buton-cumpara {
+    text-align:center;
+    font-size:20px;
+}
+
+.buton-cumpara a:hover {
+    text-decoration:none;
+}
+
+.bx-wrapper {
+     border: none!important;
+     background: none!important;
+     margin-bottom: 0!important;
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+}
+
+.bx-viewport {
+    position: static!important;
+    border: 0!important; 
+    -webkit-box-shadow: none!important; 
+    box-shadow: none!important;
+}
+
+.bx-wrapper .bx-prev {
+    left: -58px!important;
+}
+
+.bx-wrapper .bx-next {
+    right: -58px!important;
+}
+
+.bx-wrapper img {
+    max-width: 90px!important;
+    max-height: 90px!important;
+}
+
+.btn-default {
+    width: 100%!important;
+    margin-top:20px!important;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+}
+
+.btn-default:hover {
+    background:#b6ff00!important;
+    color: #000000!important;
+}
+
+.tab-item {
+    border: none;
+    padding: 37px;
+    border-radius: 100%;
+    background-color: #;
+    background-color: #F5F5DC;
+    margin-top: 30px;
+    text-align: center;
+    margin-left:3px;
+}
+
+.tab-container #1 {
+    margin-left: 97px;
+}

@@ -1,0 +1,131 @@
+﻿@{
+    Layout = null;
+}
+@model List<Ads.Database.Advert>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/advert.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/Ads/adsProperties.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            
+        });
+    </script>
+    <title></title>
+</head>
+
+<body>
+    <div ng-app="adsApp" ng-controller="adsCtrl">
+        <div id="header" class="full-width">
+            <div class="tab-container">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <button id="@item.Id" ng-click="getAdvert(@item.Id)" class="tab-item">@item.Width / @item.Height</button>
+                    }
+                }
+            </div>
+            <div id="content">
+                <div id="preview" class="full-width">
+                    {{currentAdvert.Width}}
+
+                    <section class="my-advert">
+                        <div class="container-fluid">
+                            <div class="patrat"
+                                 style="width:{{currentAdvert.Width}}px;
+                                     height:{{currentAdvert.Height}}px;
+                                     background-color:{{currentAdvert.BackgroungColor}}">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="logo">
+                                            <img ng-src="{{currentAdvert.Logo}}" alt="logo" />
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="slider">
+
+                                    <div ng-repeat="product in products" class="product" >
+                                        <div class="title" style="color:{{currentAdvert.TitleColor}}">{{product.Title}}</div>
+                                        <div class="imagine-pret">
+                                            <img ng-src="{{product.Image}}" alt="{{product.Title}}" />
+                                            <div class="price">{{product.PriceCurrency}}{{cureentAdvert.PriceColor}}</div>
+                                        </div>
+                                        <div class="buton-cumpara">
+                                            <a ng-href="{{product.Url}}" target="_blank">{{currentAdvert.ButtonText}}{{currentAdvert.ButtonColor}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div id="configuration">
+
+                <fieldset>
+                    <label class="control-label" for="Width">Width</label>
+                    <input class="form-control" type="text" name="Width" id="Width" ng-model="currentAdvert.Width" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="Height">Height</label>
+                    <input class="form-control" type="text" name="Height" id="Height" ng-model="currentAdvert.Height" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="BackgroungColor">Backgroung color</label>
+                    <input class="form-control" type="text" name="BackgroungColor" id="BackgroungColor" ng-model="currentAdvert.BackgroungColor" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="BackgroundImage">Background image</label>
+                    <input class="form-control" type="file" name="BackgroundImage" id="BackgroundImage" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="Logo">Logo</label>
+                    <input class="form-control" type="file" name="Logo" id="Logo" onchange="angular.element(this).scope().upload(this)"/>
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="TitleText">Title text</label>
+                    <input class="form-control" type="text" name="TitleText" id="TitleText" ng-model="currentAdvert.TitleText" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="TitleColor">Title color</label>
+                    <input class="form-control" type="text" name="TitleColor" id="TitleColor" ng-model="currentAdvert.TitleColor" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="ButtonText">Button text</label>
+                    <input class="form-control" type="text" name="ButtonText" id="ButtonText" ng-model="currentAdvert.ButtonText" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="ButtonColor">Button color</label>
+                    <input class="form-control" type="text" name="ButtonColor" id="ButtonColor" ng-model="currentAdvert.ButtonColor" />
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="PriceFormat">Price format</label>
+                    <select class="form-control" name="PriceFormat" id="PriceFormat" ng-model="currentAdvert.PriceFormat">
+                        <option value="{currency}{price}">$100</option>
+                        <option value="{price}{currency}">100$</option>
+                        <option value="{currency} {price}">$ 100</option>
+                        <option value="{price} {currency}">100 $</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label class="control-label" for="PriceColor">Price color</label>
+                    <input class="form-control" type="text" name="PriceColor" id="PriceColor" ng-model="currentAdvert.PriceColor" />
+                </fieldset>
+                <button type="submit" class="btn btn-default" ng-click="saveAdvert()">Submit</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
