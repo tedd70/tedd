@@ -1,6 +1,8 @@
-﻿using Ads.Database;
+﻿using System;
+using Ads.Database;
 using Ads.Services;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,30 +38,25 @@ namespace Ads.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upload()
+        public JsonResult Upload()
         {
-            using (FileStream fileStream = System.IO.File.Create(Server.MapPath("~/App_Data/uploads.png"), (int)Request.InputStream.Length))
+            var result = "";
+            if (Request.Files.AllKeys.Any())
             {
-                byte[] bytesinStream = new byte[Request.InputStream.Length];
-                Request.InputStream.Read(bytesinStream, 0, (int)bytesinStream.Length);
-                fileStream.Write(bytesinStream, 0, bytesinStream.Length);
+                var httpPostedFile = Request.Files["UploadedImage"];
+
+                if (httpPostedFile != null)
+                {
+                    var fileName = new Guid().ToString();
+                    var fileSavePath = Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
+                    httpPostedFile.SaveAs(fileSavePath);
+                    result = fileSavePath;
+                }
             }
-                
-            //var something = Request.Files;
-            //foreach (string aaa in Request.Files)
-            //{
-            //    var fileContent = Request.Files[file];
-
-            //        }
-
-            //if (file != null && file.ContentLength > 0)
-            //{
-            //    var fileName = Path.GetFileName(file.FileName);
-            //    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-            //    file.SaveAs(path);
-            //}
-            return RedirectToAction("Index");
+            
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         private Advert GetAdvertById(int advertId)
         {
             return _adsDbContext.GetById(advertId);

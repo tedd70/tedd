@@ -37,8 +37,6 @@
             </div>
             <div id="content">
                 <div id="preview" class="full-width">
-                    {{currentAdvert.Width}}
-
                     <section class="my-advert">
                         <div class="container-fluid">
                             <div class="patrat"
@@ -94,11 +92,7 @@
                     <input class="form-control" type="file" name="Logo" id="Logo" onchange="angular.element(this).scope().upload(this)"/>
                 </fieldset>
                 <fieldset>
-                    <label class="control-label" for="TitleText">Title text</label>
-                    <input class="form-control" type="text" name="TitleText" id="TitleText" ng-model="currentAdvert.TitleText" />
-                </fieldset>
-                <fieldset>
-                    <label class="control-label" for="TitleColor">Title color</label>
+                    <label class="control-label" for="TitleColor">Product name color</label>
                     <input class="form-control" type="text" name="TitleColor" id="TitleColor" ng-model="currentAdvert.TitleColor" />
                 </fieldset>
                 <fieldset>

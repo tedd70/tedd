@@ -5,7 +5,7 @@ app.controller('adsCtrl', function ($scope, $http) {
     $scope.products = [];
     $scope.slider = null;
 
-    $scope.getAdvert = function(advertId) {
+    $scope.getAdvert = function (advertId) {
         $http({
             url: "../advert/getadvert",
             method: 'GET',
@@ -18,7 +18,7 @@ app.controller('adsCtrl', function ($scope, $http) {
                 }
                 $scope.slider = $('.slider').bxSlider({
                     pager: false,
-                    auto:true,
+                    auto: true,
                     maxSlides: 1,
                     moveSlides: 1,
                     adaptiveHeight: false,
@@ -54,20 +54,23 @@ app.controller('adsCtrl', function ($scope, $http) {
     };
 
     $scope.upload = function (element) {
-        console.log();
-        var data = new FormData();
-        for (var x = 0; x < element.files.length; x++) {
-            data.append("file" + x, element.files[x]);
-        }
-        console.log(data);
-        $http({
-            method: 'POST',
+        var formData = new FormData();
+        var file = document.getElementById("Logo").files[0];
+        formData.append("UploadedImage", file);
+
+        var ajaxRequest = $.ajax({
+            type: "POST",
             url: '../advert/upload',
-            headers: { 'Content-Type': "image/jpeg" },
-            data: data,
-        }).success(function (response) {
-            console.log('Request finished', response);
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false
         });
+
+        ajaxRequest.done(function (xhr, textStatus) {
+            console.log(textStatus);
+        });
+
     }
 
     $scope.getProducts();
